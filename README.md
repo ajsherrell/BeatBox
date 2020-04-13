@@ -4,3 +4,4 @@
 
 - MVVM
 - DataBinding
+- Raw assets with Sounds
