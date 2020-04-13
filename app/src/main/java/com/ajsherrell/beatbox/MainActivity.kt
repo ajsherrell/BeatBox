@@ -29,6 +29,16 @@ class MainActivity : AppCompatActivity() {
     //view holder to wire up list_item_sound
     private inner class SoundHolder(private val binding: ListItemSoundBinding): RecyclerView.ViewHolder(binding.root) {
 
+        init {
+            binding.viewModel = SoundViewModel()
+        }
+
+        fun bind(sound: Sound) {
+            binding.apply {
+                viewModel?.sound = sound
+                executePendingBindings()
+            }
+        }
     }
 
     //adapter to hook up to sound holder
@@ -47,6 +57,8 @@ class MainActivity : AppCompatActivity() {
         override fun getItemCount() = sounds.size
 
         override fun onBindViewHolder(holder: SoundHolder, position: Int) {
+            val sound = sounds[position]
+            holder.bind(sound)
         }
 
     }
