@@ -5,6 +5,11 @@ import androidx.databinding.Bindable
 
 class SoundViewModel: BaseObservable() {
 
+    //function created with alt + enter from SoundViewModelTest -> TDD:
+    fun onButtonClicked() {
+
+    }
+
     var sound: Sound? = null
         set(sound) {
             field = sound
