@@ -1,9 +1,9 @@
 package com.ajsherrell.beatbox
 
+import org.hamcrest.CoreMatchers.`is`
 import org.junit.Before
-
 import org.junit.Assert.*
-import javax.security.auth.Subject
+import org.junit.Test
 
 class SoundViewModelTest {
 
@@ -18,5 +18,13 @@ class SoundViewModelTest {
         sound = Sound("assetPath")
         subject = SoundViewModel()
         subject.sound = sound
+    }
+
+    //`is` -> Hamcrest matcher. "assertThat" -> jUnit. This test exposes
+    // existing behaviour in SoundViewModel: The
+    // title property is connected to the Sound's name property.
+    @Test
+    fun exposesSoundNameAsTitle() {
+        assertThat(subject.title, `is`(sound.name))
     }
 }
